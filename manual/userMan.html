@@ -1,0 +1,985 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>操作マニュアル </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="操作マニュアル ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="操作マニュアル">操作マニュアル</h1>
+
+<h2 id="1-本書について">1 本書について</h2>
+<p>本書では、ネットワークデータ作成支援ツール（以下「本ツール」という。）の操作手順について記載しています。</p>
+<h2 id="2-ツール概要">2 ツール概要</h2>
+<p>本ツールは、3D都市モデル（交通（道路）、橋梁、都市設備）を使用して、車道ネットワーク及び歩道ネットワークデータの作成を行います。</p>
+<p><img src="../resources/userMan/userMan_001.png" alt="ツール概要"></p>
+<h2 id="3-使い方">3 使い方</h2>
+<h3 id="3-1-画面">3-1 画面</h3>
+<p>本ツールの実行ファイル「NetworkCreator.exe」を実行すると以下の画面が表示されます。</p>
+<p><img src="../resources/userMan/userMan_002.png" alt="メイン画面"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>入力設定</td>
+<td>作成するネットワークデータの入力設定項目です。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>出力設定</td>
+<td>作成するネットワークデータの出力設定項目です。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>ステータス</td>
+<td>ネットワークデータ作成中の進捗状況を表示します。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>作成</td>
+<td>ネットワークデータの作成を開始します。</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>終了</td>
+<td>アプリケーションを終了します。</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td>?</td>
+<td>操作マニュアルを表示します。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-2-入力設定">3-2 入力設定</h3>
+<p>① 入力フォルダ</p>
+<p>3D都市モデルデータのルートフォルダを設定します。 <br>
+「選択」ボタンを押下するとフォルダ選択のダイアログが表示され、ダイアログの中で選択したパスがテキストボックスに入力されます。 <br>
+3D都市モデルデータは、<a href="https://www.geospatial.jp/ckan/dataset/plateau">3D都市モデル（Project PLATEAU) ポータルサイト</a>から入手可能です。本ツールでは、<a href="https://www.mlit.go.jp/plateau/libraries/handbooks/">3D都市モデル標準製品仕様書</a> 第3版（第3版の最終版は第3.5版）に準拠した3D都市モデルデータを入力対象としています。</p>
+<p>本ツールが入力を想定している3D都市モデルデータの構成は以下のとおりです。</p>
+<p><img src="../resources/userMan/userMan_003.png" alt="3D都市モデルデータ構成"></p>
+<p>② 使用する道路</p>
+<p>ネットワークデータを作成する際に使用する交通（道路）のモデルの詳細度を設定します。 <br>
+<a href="https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_doc_0001_ver03.pdf">3D都市モデル標準製品仕様書 第3.5版</a>では、LOD3はLOD3.0 - LOD3.4まで定義されていますが、本ツールではLOD3.0 - LOD3.3を入力対象とします。 <br>
+「使用する道路」において「LOD3」を選択した場合、本ツールは読み込んだ交通（道路）モデルに記載されているLOD3の詳細な区分（LOD3.0 - LOD3.4）を基にネットワークデータの作成を行います。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOD1</td>
+<td>LOD1交通（道路）モデルを使用して車道ネットワークデータを作成します。</td>
+</tr>
+<tr>
+<td>LOD2</td>
+<td>LOD2交通（道路）モデルを使用して車道及び歩道ネットワークデータを作成します。</td>
+</tr>
+<tr>
+<td>LOD3</td>
+<td>LOD3交通（道路）モデルを使用して車道及び歩道ネットワークデータを作成します。</td>
+</tr>
+</tbody>
+</table>
+<p>③ 平面直角座標系</p>
+<p>「入力フォルダ」で指定した3D都市モデルに該当する平面直角座標系の系番号を指定します。 <br>
+入力データである3D都市モデルは、日本測地系2011における経緯度座標系と東京湾平均海面を基準とする標高の複合座標参照系（EPSGコード:6697）で記載されていますが、本ツールでは平面直角座標系で内部処理を行っているため、平面直角座標系の系番号の指定が必要となります。 <br>
+引用 : <a href="https://www.gsi.go.jp/LAW/heimencho.html">国土交通省 国土地理院 平面直角座標系（平成十四年国土交通省告示第九号）</a></p>
+<h3 id="3-3-出力設定">3-3 出力設定</h3>
+<p>① 出力フォルダ</p>
+<p>ネットワークデータの出力先フォルダを設定します。 <br>
+「選択」ボタンを押下するとフォルダ選択のダイアログが表示され、ダイアログの中で選択したパスがテキストボックスに入力されます。</p>
+<p>② ファイル形式</p>
+<p>ネットワークデータのファイル形式を選択します。 <br>
+ファイル形式は、「Shapefile」（シェープファイル）及び「GeoJSON」のどちらか又は両方を選択可能です。</p>
+<h2 id="4-出力データ">4 出力データ</h2>
+<p>本ツールの出力データは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>車道ネットワークデータ</td>
+<td>車道ネットワークのノードデータとリンクデータ。</td>
+</tr>
+<tr>
+<td>歩道ネットワークデータ</td>
+<td>歩道ネットワークのノードデータとリンクデータ。</td>
+</tr>
+<tr>
+<td>動作ログ</td>
+<td>本ツールの動作時のログメッセージを記載したテキストファイル。</td>
+</tr>
+<tr>
+<td>エラーログ</td>
+<td>車道及び歩道ネットワークのエラー箇所を記載したCSVファイル。</td>
+</tr>
+</tbody>
+</table>
+<p>出力データは以下の構成で出力されます。</p>
+<p><img src="../resources/userMan/userMan_004.png" alt="出力データ構成"></p>
+<h3 id="4-1-ネットワークデータ">4-1 ネットワークデータ</h3>
+<h4 id="4-1-1-車道ネットワークデータ">4-1-1 車道ネットワークデータ</h4>
+<p>車道ネットワークデータのノードデータとリンクデータは、出力設定で指定されたファイル形式で出力します。 <br>
+出力先は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル形式</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shapefile（シェープファイル）</td>
+<td>出力フォルダ/作成日時フォルダ/SHP/roadway</td>
+</tr>
+<tr>
+<td>GeoJSON</td>
+<td>出力フォルダ/作成日時フォルダ/GeoJSON/roadway</td>
+</tr>
+</tbody>
+</table>
+<p>出力ファイルの文字コードは、Shapefile(シェープファイル)の場合はShift_JIS、GeoJSONの場合はUTF-8です。</p>
+<p>ノードデータとリンクデータの幾何情報の座標系は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。</p>
+<table>
+<thead>
+<tr>
+<th>交通（道路）の詳細度</th>
+<th>幾何情報の座標系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOD1</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD2</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD3</td>
+<td>日本測地系2011における経緯度座標系と東京湾平均海面を基準とする標高の複合座標参照系（EPSGコード:6697）</td>
+</tr>
+</tbody>
+</table>
+<p>ノードデータとリンクデータに付与される属性情報は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。
+詳細については<a href="#4-1-3-%E5%B1%9E%E6%80%A7%E6%83%85%E5%A0%B1">4-1-3 属性情報</a>を参照してください。</p>
+<p>【車道ネットワークの幾何形状サンプル】
+<img src="../resources/userMan/userMan_005.png" alt="車道ネットワークの幾何形状"></p>
+<p>【車道ネットワークの属性情報サンプル（LOD1、LOD2）】
+<img src="../resources/userMan/userMan_006.png" alt="車道ネットワークの属性（LOD1,2）"></p>
+<p>【車道ネットワークの属性情報サンプル（LOD3）】
+<img src="../resources/userMan/userMan_007.png" alt="車道ネットワークの属性（LOD3）"></p>
+<h4 id="4-1-2-歩道ネットワークデータ">4-1-2 歩道ネットワークデータ</h4>
+<p>歩道ネットワークデータのノードデータとリンクデータは、出力設定で指定されたファイル形式で出力します。 <br>
+出力先は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル形式</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shapefile（シェープファイル）</td>
+<td>出力フォルダ/作成日時フォルダ/SHP/footpath</td>
+</tr>
+<tr>
+<td>GeoJSON</td>
+<td>出力フォルダ/作成日時フォルダ/GeoJSON/footpath</td>
+</tr>
+</tbody>
+</table>
+<p>出力ファイルの文字コードは、Shapefile(シェープファイル)の場合はShift_JIS、GeoJSONの場合はUTF-8です。</p>
+<p>ノードデータとリンクデータの幾何情報の座標系は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。</p>
+<table>
+<thead>
+<tr>
+<th>交通（道路）の詳細度</th>
+<th>幾何情報の座標系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOD2</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD3</td>
+<td>日本測地系2011における経緯度座標系と東京湾平均海面を基準とする標高の複合座標参照系（EPSGコード:6697）</td>
+</tr>
+</tbody>
+</table>
+<p>ノードデータとリンクデータに付与される属性情報は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。
+詳細については<a href="#4-1-3-%E5%B1%9E%E6%80%A7%E6%83%85%E5%A0%B1">4-1-3 属性情報</a>を参照してください。</p>
+<p>【歩道ネットワークの幾何形状サンプル】
+<img src="../resources/userMan/userMan_008.png" alt="歩道ネットワークの幾何形状"></p>
+<p>【車道ネットワークの属性情報サンプル（LOD2）】
+<img src="../resources/userMan/userMan_009.png" alt="歩道ネットワークの属性（LOD2）"></p>
+<p>【車道ネットワークの属性情報サンプル（LOD3.0 - LOD3.1）】
+<img src="../resources/userMan/userMan_010.png" alt="歩道ネットワークの属性（LOD3.0 - LOD3.1）"></p>
+<p>【車道ネットワークの属性情報サンプル（LOD3.2 - LOD3.3）】
+<img src="../resources/userMan/userMan_011.png" alt="歩道ネットワークの属性（LOD3.2 - LOD3.3）"></p>
+<h4 id="4-1-3-属性情報">4-1-3 属性情報</h4>
+<p>以下にネットワークデータ（ノードデータとリンクデータ）の属性情報の一覧、及び、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動する属性の有無の一覧を記載します。</p>
+<p>【ノードデータの属性情報】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>属性名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ノードID</td>
+<td>node_id</td>
+<td>座標点の平面直角座標系の系番号(2桁)、平面直角座標系のxyz座標の整数部(符号1桁、座標値6桁)、連番(6桁)を順番に記載した文字列。 <br> 平面直角座標系の系番号とxyz座標を整数部とし、連番部分を小数部としてピリオドで区切ります。 <br> なお、座標値の符号は正を0、負を1とします。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>緯度</td>
+<td>lat</td>
+<td>ノード座標の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>経度</td>
+<td>lon</td>
+<td>ノード座標の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>標高値</td>
+<td>elevation</td>
+<td>ノード座標の標高値を記載します。 <br> LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>施設内外区分</td>
+<td>in_out</td>
+<td>歩道ネットワークの場合に付与し、値は1（施設外）固定とします。 <br> 設定可能な値は以下のとおりです。 <br> 1:施設外 <br> 2:施設内外の境界 <br> 3:施設内</td>
+</tr>
+<tr>
+<td>6</td>
+<td>接続リンクID</td>
+<td>link_id</td>
+<td>ノードが接続しているリンクのIDを記載します。 <br> 接続しているリンク数によってlink1_id、link2_id、…、link99_idのように属性数が増加します。</td>
+</tr>
+</tbody>
+</table>
+<p>【リンクデータの属性情報】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>属性名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンクID</td>
+<td>link_id</td>
+<td>リンク中央付近の座標点（リンクが2点間からなる線分の場合は線分の中点、3点以上のポリラインの場合は座標インデックスが中央となる座標点）の平面直角座標系の系番号(2桁)、平面直角座標系のxyz座標の整数部(符号1桁、座標値6桁)、連番(6桁)を順番に記載した文字列。 <br> 平面直角座標系の系番号とxyz座標を整数部とし、連番部分を小数部としてピリオドで区切ります。なお、座標値の符号は正を0、負を1とします。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>起点ノードID</td>
+<td>start_id</td>
+<td>リンクの起点となるノードのIDを記載します。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>終点ノードID</td>
+<td>end_id</td>
+<td>リンクの終点となるノードのIDを記載します。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>リンク延長</td>
+<td>distance</td>
+<td>リンクの延長を小数点以下第1位までの精度で記載します。 <br> 単位はメートル。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ランク区分</td>
+<td>rank</td>
+<td>歩道ネットワークの場合に付与し、幅員、縦断勾配、段差を示すランク（S/A/B/C/Z/X）を順に並べて英字3文字で記載します。 <br> 各ランクの判定方法は以下のとおりです。 <br> 【幅員】 <br> S:最小幅員が2m以上 <br> A:最小幅員が1m以上、2m未満 <br> B:設定なし <br> C:設定なし <br> Z:最小幅員が1m未満 <br> X:不明 <br> 【縦断勾配】 <br> S:最大縦断勾配が0%（平坦）<br> A:最大縦断勾配が0%より大きく5%以下 <br> B:最大縦断勾配5%より大きく8%以下 <br> C:最大縦断勾配8%より大きく18%以下 <br> Z:最大縦断勾配が18%より大きい <br> X:不明 <br>【段差】<br> 段差の計測は行わないためX（不明）を付与します。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>リンク作成・更新日</td>
+<td>maint_date</td>
+<td>リンクデータを作成した日付を記載します。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>経路構造</td>
+<td>rt_struct</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりですが、入力として使用する3D都市モデルの関係上、付与可能な設定値は、1、3、6、99です。 <br> 1:車道と歩道の物理的な分離あり <br> 2:車道と歩道の物理的な分離なし <br> 3:横断歩道 <br> 4:横断歩道の路面表示の無い道路の横断部 <br> 5:地下通路 <br> 6:歩道橋 <br> 7:施設内通路 <br> 8:その他の経路の構造 <br> 99:不明</td>
+</tr>
+<tr>
+<td>8</td>
+<td>幅員（コード値）</td>
+<td>width</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりです。 <br> 1:1.0未満 <br> 2:1.0m以上、2.0m未満 <br> 3:2.0m以上、3.0m未満 <br> 4:3.0m以上 <br> 99:不明</td>
+</tr>
+<tr>
+<td>9</td>
+<td>縦断勾配（コード値）</td>
+<td>vtcl_slope</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。 <br>設定値は以下のとおりです。 <br> 1:0% <br> 2:0%より大きい、5%以下 <br> 3:5%より大きい、8%以下（起点より終点が高い） <br> 4:5%より大きい、8%以下（起点より終点が低い） <br>5:8%より大きい、18%以下（起点より終点が高い） <br> 6:8%より大きい、18%以下（起点より終点が低い） <br> 7:18%より大きい（起点より終点が高い） <br> 8:18%より大きい（起点より終点が低い） <br> 99:不明</td>
+</tr>
+<tr>
+<td>10</td>
+<td>点字ブロックの有無</td>
+<td>brail_tile</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりです。 <br> 1:視覚障害者誘導用ブロック等なし <br> 2:視覚障害者誘導用ブロック等あり <br> 99:不明</td>
+</tr>
+<tr>
+<td>11</td>
+<td>最小幅員</td>
+<td>w_min</td>
+<td>リンク内の幅員の最小値を小数点以下第1位までの精度で記載します。 <br> 単位はメートル。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>最小幅員緯度</td>
+<td>w_min_lat</td>
+<td>歩道ネットワークの場合に付与します。 <br> 最小幅員地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>最小幅員経度</td>
+<td>w_min_lon</td>
+<td>歩道ネットワークの場合に付与します。 <br> 最小幅員地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>最小幅員有効フラグ</td>
+<td>is_w_min</td>
+<td>車道ネットワークの場合に付与します。 <br> 最小幅員属性が有効値である場合は1、無効値である場合は0とします。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>最小幅員参考値フラグ</td>
+<td>ref_w_min</td>
+<td>歩道ネットワークの場合に付与します。 <br> 歩道ネットワークにおいて、車道交差部内の歩道の幅員が正しく求められない可能性があるため、正しい値ではない可能性がある最小幅員に関しては参考値として判断ができるようにこの属性を付与します。 <br> 最小幅員属性が参考値である場合は1、非参考値である場合は0とします。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>最大縦断勾配</td>
+<td>vSlope_max</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。 <br> リンク内の縦断勾配の最大値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>最大縦断勾配緯度</td>
+<td>vSlope_lat</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大縦断勾配地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>最大縦断勾配経度</td>
+<td>vSlope_lon</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大縦断勾配地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>平均縦断勾配</td>
+<td>vSlope_ave</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成したネットワークの場合に付与します。 <br> リンク内の縦断勾配の平均値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>縦断勾配有効フラグ</td>
+<td>is_vSlope</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した車道ネットワークの場合に付与します。 <br> 最大縦断勾配と平均縦断勾配属性が有効値である場合は1、無効値である場合は0とします。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>最大横断勾配</td>
+<td>hSlope_max</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の横断勾配の最大値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>22</td>
+<td>最大横断勾配緯度</td>
+<td>hSlope_lat</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大横断勾配地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>最大横断勾配経度</td>
+<td>hSlope_lon</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大横断勾配地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>24</td>
+<td>道路の区分</td>
+<td>type</td>
+<td>車道ネットワークの場合に付与します。 <br> 交通（道路）CityGMLに記載されている道路の区分（tran:Roadのtran:function）を記載します。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>通り名、路線名</td>
+<td>route_name</td>
+<td>交通（道路）CityGMLに記載されている路線名（tran:Roadのgml:name）を記載します。</td>
+</tr>
+</tbody>
+</table>
+<p>【交通（道路）の詳細度によるノードデータの属性情報の有無】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>車道（LOD1）</th>
+<th>車道（LOD2）</th>
+<th>車道（LOD3.0 - 3.3）</th>
+<th>歩道（LOD2）</th>
+<th>歩道（LOD3.0 - 3.3）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>緯度</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>経度</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>標高値</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>5</td>
+<td>施設内外区分</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>6</td>
+<td>接続リンクID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<p>【交通（道路）の詳細度によるリンクデータの属性情報の有無】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>車道（LOD1）</th>
+<th>車道（LOD2）</th>
+<th>車道（LOD3.0 - 3.3）</th>
+<th>歩道（LOD2）</th>
+<th>歩道（LOD3.0 - 3.1）</th>
+<th>歩道（LOD3.2 - 3.3）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンクID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>起点ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>終点ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>リンク延長</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ランク区分</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>6</td>
+<td>リンク作成・更新日</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>7</td>
+<td>経路構造</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>8</td>
+<td>幅員（コード値）</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>9</td>
+<td>縦断勾配（コード値）</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>10</td>
+<td>点字ブロックの有無</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>11</td>
+<td>最小幅員</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>12</td>
+<td>最小幅員緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>13</td>
+<td>最小幅員経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>14</td>
+<td>最小幅員有効フラグ</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>15</td>
+<td>最小幅員参考値フラグ</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>16</td>
+<td>最大縦断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>17</td>
+<td>最大縦断勾配緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>18</td>
+<td>最大縦断勾配経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>19</td>
+<td>平均縦断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>20</td>
+<td>縦断勾配有効フラグ</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>21</td>
+<td>最大横断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>22</td>
+<td>最大横断勾配緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>23</td>
+<td>最大横断勾配経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>24</td>
+<td>道路の区分</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>25</td>
+<td>通り名、路線名</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-3-動作ログ">4-3 動作ログ</h3>
+<p>ネットワークデータ作成時の動作ログを以下に出力します。<br>
+出力フォルダ/作成日時フォルダ/log.txt</p>
+<p>ログファイルの文字コードはUTF-8です。 <br>
+動作ログの記載内容は以下のとおりです。</p>
+<p><img src="../resources/userMan/userMan_012.png" alt="動作ログ"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>ネットワークデータ作成時の入出力設定を記載しています。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>ネットワークデータ作成時の動作ログを記載しています。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>ネットワークデータ作成に要した処理時間を記載しています。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4-エラーログ">4-4 エラーログ</h3>
+<p>エラーログは作成したネットワークデータのエラー地点の緯度経度情報とエラー内容を記載したCSVファイルです。なお、エラー地点の座標系は日本測地系2011における経緯度座標系（EPSGコード:6668）です。 <br>
+エラーログは、車道ネットワークと歩道ネットワークごとにログファイルを以下に出力します。</p>
+<table>
+<thead>
+<tr>
+<th>ネットワーク種別</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>車道ネットワーク</td>
+<td>出力フォルダ/作成日時フォルダ/errlog_roadway.csv</td>
+</tr>
+<tr>
+<td>歩道ネットワーク</td>
+<td>出力フォルダ/作成日時フォルダ/errlog_footpath.csv</td>
+</tr>
+</tbody>
+</table>
+<p>ログファイルの文字コードはUTF-8です。 <br>
+エラーログの記載内容は以下のとおりです。</p>
+<p><img src="../resources/userMan/userMan_013.png" alt="エラーログ"></p>
+<p>【エラー内容】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>エラー内容</th>
+<th>車道ネットワークでの確認有無</th>
+<th>歩道ネットワークでの確認有無</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンク線がポリゴン外にはみ出している</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>リンク線の取得に失敗</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>未接続の横断歩道のため要確認</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>未接続の横断歩道橋のため要確認</td>
+<td>×</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../resources/userMan/userMan_014.png" alt="エラーサンプル"></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
