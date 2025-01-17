@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5e53d5a6-00f3-448e-8e25-f7c1cc04aa19}</ProjectGuid>
+    <RootNamespace>NetworkCreatorLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommonUtil;$(SolutionDir)thirdparty\libplateau\include;$(SolutionDir)thirdparty\libcitygml\include;$(SolutionDir)thirdparty\spdlog-1_14_1\include;$(SolutionDir)thirdparty\boost-1_85_0\include;$(SolutionDir)thirdparty\flann-1_9_2\include;$(SolutionDir)thirdparty\lz4-1_9_4\include;$(SolutionDir)thirdparty\opencv-4_10_0\include;$(SolutionDir)thirdparty\gdal-3_9_1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>GlU32.Lib;libxml2sd.lib;xerces-c_4D.lib;citygmld.lib;plateau.lib;lz4.lib;CommonUtil.lib;gdald.lib;opencv_world4100d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)thirdparty\libxml2\lib\x64\Debug;$(SolutionDir)thirdparty\xeroces-c\lib\x64\Debug;$(SolutionDir)thirdparty\libcitygml\lib\x64\Debug;$(SolutionDir)thirdparty\libplateau\lib\x64\Debug;$(SolutionDir)thirdparty\lz4-1_9_4\lib\x64\Debug;$(SolutionDir)thirdparty\opencv-4_10_0\lib\x64\Debug;$(SolutionDir)thirdparty\gdal-3_9_1\lib\x64\Debug;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_TIME_MEASUREMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommonUtil;$(SolutionDir)thirdparty\libplateau\include;$(SolutionDir)thirdparty\libcitygml\include;$(SolutionDir)thirdparty\spdlog-1_14_1\include;$(SolutionDir)thirdparty\boost-1_85_0\include;$(SolutionDir)thirdparty\flann-1_9_2\include;$(SolutionDir)thirdparty\lz4-1_9_4\include;$(SolutionDir)thirdparty\opencv-4_10_0\include;$(SolutionDir)thirdparty\gdal-3_9_1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>GlU32.Lib;libxml2s.lib;xerces-c_4.lib;citygml.lib;plateau.lib;lz4.lib;CommonUtil.lib;gdal.lib;opencv_world4100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)thirdparty\libxml2\lib\x64\Release;$(SolutionDir)thirdparty\xeroces-c\lib\x64\Release;$(SolutionDir)thirdparty\libcitygml\lib\x64\Release;$(SolutionDir)thirdparty\libplateau\lib\x64\Release;$(SolutionDir)thirdparty\lz4-1_9_4\lib\x64\Release;$(SolutionDir)thirdparty\opencv-4_10_0\lib\x64\Release;$(SolutionDir)thirdparty\gdal-3_9_1\lib\x64\Release;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\um\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Boost3DPointHash.h" />
+    <ClInclude Include="BoostCommon.h" />
+    <ClInclude Include="CBoostGeoUtil.h" />
+    <ClInclude Include="CBridgeData.h" />
+    <ClInclude Include="CBridgeDataUtil.h" />
+    <ClInclude Include="CCityGMLReader.h" />
+    <ClInclude Include="CConvertGeometryUtil.h" />
+    <ClInclude Include="CDebugUtil.h" />
+    <ClInclude Include="CErrLogger.h" />
+    <ClInclude Include="CFurnitureData.h" />
+    <ClInclude Include="CFurnitureDataUtil.h" />
+    <ClInclude Include="CGDALUtil.h" />
+    <ClInclude Include="CLogger.h" />
+    <ClInclude Include="CNearestNeighborSearch.h" />
+    <ClInclude Include="CNetwork.h" />
+    <ClInclude Include="CNetworkCreator.h" />
+    <ClInclude Include="CNetworkCreatorLib.h" />
+    <ClInclude Include="CGISFileExporter.h" />
+    <ClInclude Include="COpenCVUtil.h" />
+    <ClInclude Include="CSearchOverlapRoads.h" />
+    <ClInclude Include="CStatusManager.h" />
+    <ClInclude Include="CTranRoadData.h" />
+    <ClInclude Include="CUtil.h" />
+    <ClInclude Include="CSearchNeighbor.h" />
+    <ClInclude Include="CTranRoadDataUtil.h" />
+    <ClInclude Include="SettingData.h" />
+    <ClInclude Include="CityGMLCommon.h" />
+    <ClInclude Include="CommonDef.h" />
+    <ClInclude Include="CCenterLineData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Boost3DPointHash.cpp" />
+    <ClCompile Include="CBoostGeoUtil.cpp" />
+    <ClCompile Include="CBridgeDataUtil.cpp" />
+    <ClCompile Include="CCityGMLReader.cpp" />
+    <ClCompile Include="CConvertGeometryUtil.cpp" />
+    <ClCompile Include="CDebugUtil.cpp" />
+    <ClCompile Include="CErrLogger.cpp" />
+    <ClCompile Include="CFurnitureDataUtil.cpp" />
+    <ClCompile Include="CGDALUtil.cpp" />
+    <ClCompile Include="CLogger.cpp" />
+    <ClCompile Include="CNearestNeighborSearch.cpp" />
+    <ClCompile Include="CNetwork.cpp" />
+    <ClCompile Include="CNetworkCreator.cpp" />
+    <ClCompile Include="CNetworkCreatorLib.cpp" />
+    <ClCompile Include="CGISFileExporter.cpp" />
+    <ClCompile Include="COpenCVUtil.cpp" />
+    <ClCompile Include="CSearchOverlapRoads.cpp" />
+    <ClCompile Include="CStatusManager.cpp" />
+    <ClCompile Include="CUtil.cpp" />
+    <ClCompile Include="CSearchNeighbor.cpp" />
+    <ClCompile Include="CTranRoadDataUtil.cpp" />
+    <ClCompile Include="SettingData.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

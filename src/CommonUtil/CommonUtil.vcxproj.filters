@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="1_ファイル操作">
+      <UniqueIdentifier>{ada6662f-1b5f-43a7-a4d9-2b1e7f997478}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CGeoUtil.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CTime.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileIO.h">
+      <Filter>1_ファイル操作</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileUtil.h">
+      <Filter>1_ファイル操作</Filter>
+    </ClInclude>
+    <ClInclude Include="CINIFileIO.h">
+      <Filter>1_ファイル操作</Filter>
+    </ClInclude>
+    <ClInclude Include="StringEx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CEpsUtil.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CGeoid.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CCsvFileIO.h">
+      <Filter>1_ファイル操作</Filter>
+    </ClInclude>
+    <ClInclude Include="CStopWatch.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CGeoUtil.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileIO.cpp">
+      <Filter>1_ファイル操作</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileUtil.cpp">
+      <Filter>1_ファイル操作</Filter>
+    </ClCompile>
+    <ClCompile Include="CINIFileIO.cpp">
+      <Filter>1_ファイル操作</Filter>
+    </ClCompile>
+    <ClCompile Include="CGeoid.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CCsvFileIO.cpp">
+      <Filter>1_ファイル操作</Filter>
+    </ClCompile>
+    <ClCompile Include="CStopWatch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

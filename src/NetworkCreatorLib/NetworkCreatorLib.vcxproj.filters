@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CityGML読み込み">
+      <UniqueIdentifier>{218469d3-00ec-409b-ab41-09241ff6e1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="幾何形状関連">
+      <UniqueIdentifier>{969877be-44b8-42b9-8de1-cb838da4d9ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ログ">
+      <UniqueIdentifier>{17e20fe3-7768-4c18-8cf4-26c3671af1d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="デバッグ">
+      <UniqueIdentifier>{da3ff454-c6ae-4d87-82b0-e3e32888763a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="入出力パラメータ">
+      <UniqueIdentifier>{3e592b6a-e611-441b-9ee4-d0e2046deb67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="近傍探索">
+      <UniqueIdentifier>{3864e7df-0a45-4885-9982-8b118c0a2860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SHP関連">
+      <UniqueIdentifier>{b6791242-9397-44c2-9f52-17e68e871ed5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ネットワーク作成">
+      <UniqueIdentifier>{c1d8dc6c-740a-4c22-a2fa-d630255c8ff5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CCityGMLReader.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CityGMLCommon.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CTranRoadDataUtil.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="BoostCommon.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CLogger.h">
+      <Filter>ログ</Filter>
+    </ClInclude>
+    <ClInclude Include="CDebugUtil.h">
+      <Filter>デバッグ</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingData.h">
+      <Filter>入出力パラメータ</Filter>
+    </ClInclude>
+    <ClInclude Include="CConvertGeometryUtil.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CNetworkCreatorLib.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CSearchNeighbor.h">
+      <Filter>近傍探索</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtil.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonDef.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Boost3DPointHash.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CGISFileExporter.h">
+      <Filter>SHP関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CNetworkCreator.h">
+      <Filter>ネットワーク作成</Filter>
+    </ClInclude>
+    <ClInclude Include="CTranRoadData.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CNearestNeighborSearch.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CNetwork.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CGDALUtil.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CBridgeDataUtil.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CBridgeData.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CFurnitureData.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CFurnitureDataUtil.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="COpenCVUtil.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoostGeoUtil.h">
+      <Filter>幾何形状関連</Filter>
+    </ClInclude>
+    <ClInclude Include="CSearchOverlapRoads.h">
+      <Filter>近傍探索</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatusManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CCenterLineData.h">
+      <Filter>CityGML読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="CErrLogger.h">
+      <Filter>ログ</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CCityGMLReader.cpp">
+      <Filter>CityGML読み込み</Filter>
+    </ClCompile>
+    <ClCompile Include="CTranRoadDataUtil.cpp">
+      <Filter>CityGML読み込み</Filter>
+    </ClCompile>
+    <ClCompile Include="CLogger.cpp">
+      <Filter>ログ</Filter>
+    </ClCompile>
+    <ClCompile Include="CDebugUtil.cpp">
+      <Filter>デバッグ</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingData.cpp">
+      <Filter>入出力パラメータ</Filter>
+    </ClCompile>
+    <ClCompile Include="CConvertGeometryUtil.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CNetworkCreatorLib.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CSearchNeighbor.cpp">
+      <Filter>近傍探索</Filter>
+    </ClCompile>
+    <ClCompile Include="CUtil.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CGISFileExporter.cpp">
+      <Filter>SHP関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CNetworkCreator.cpp">
+      <Filter>ネットワーク作成</Filter>
+    </ClCompile>
+    <ClCompile Include="Boost3DPointHash.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CNearestNeighborSearch.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CNetwork.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CGDALUtil.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CBridgeDataUtil.cpp">
+      <Filter>CityGML読み込み</Filter>
+    </ClCompile>
+    <ClCompile Include="CFurnitureDataUtil.cpp">
+      <Filter>CityGML読み込み</Filter>
+    </ClCompile>
+    <ClCompile Include="COpenCVUtil.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoostGeoUtil.cpp">
+      <Filter>幾何形状関連</Filter>
+    </ClCompile>
+    <ClCompile Include="CSearchOverlapRoads.cpp">
+      <Filter>近傍探索</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatusManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CErrLogger.cpp">
+      <Filter>ログ</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
