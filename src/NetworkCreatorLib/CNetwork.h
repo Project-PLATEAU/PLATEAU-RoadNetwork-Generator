@@ -801,26 +801,6 @@ public:
         const double dLengthTh = 1.0);
 
     /*!
-     * @brief 頂点座標の更新
-     * @param[in] target    更新対象の座標点
-     * @param[in] pt        更新後の座標点情報
-     * @return  更新結果
-     * @retval  true        更新済み
-     * @retval  false       未更新
-    */
-    bool UpdateVertex(const Boost3DPointHash &target, const Boost3DPointHash &pt);
-
-    /*!
-     * @brief 頂点座標の更新
-     * @param[in] target    更新対象の頂点ディスクリプタ
-     * @param[in] pt        更新後の座標点情報
-     * @return  更新結果
-     * @retval  true        更新済み
-     * @retval  false       未更新
-    */
-    bool UpdateVertex(const BoostVertexDesc &target, const Boost3DPointHash &pt);
-
-    /*!
      * @brief グラフのクリア
     */
     void Clear();
@@ -907,13 +887,6 @@ public:
 
 private:
     /*!
-     * @brief Boost3DPointHashデータをキーとするハッシュマップ(同一頂点の探索用)
-    */
-    typedef std::unordered_map<
-        Boost3DPointHash, BoostVertexDesc, Boost3DPointHash::HashFunc,
-        Boost3DPointHash::RoundEqualFunc> VertexHashMap;
-
-    /*!
      * @brief 関連道路情報の管理用の関連道路のポインタをキー、中心線のポインタ群を値とするハッシュマップ
     */
     typedef std::unordered_map<std::shared_ptr<CTranRoadData>, std::set<std::shared_ptr<CCenterLineData>>> RoadHashMap;
@@ -945,7 +918,6 @@ private:
 
     NETWORK_DATA_TYPE m_dataType;               // 入出力ネットワークのデータタイプ(車道or歩道判断用)
     BoostUndirectedGraph m_graph;               // 無向グラフ
-    VertexHashMap m_vertexMap;                  // グラフ内頂点の探索用ハッシュマップ
     RoadHashMap m_roadHashMap;                  // 関連道路情報の管理用ハッシュマップ
     FurnitureHashMap m_frnHashMap;              // 関連都市設備情報の管理用ハッシュマップ
     BridgeHashMap m_bridgeHashMap;              // 関連橋梁情報の管理用ハッシュマップ

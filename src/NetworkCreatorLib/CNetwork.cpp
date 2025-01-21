@@ -56,16 +56,15 @@ void CNetwork::add(
             }
 
             // 既存点の確認
-            auto itTarget = m_vertexMap.find(*it);
-
-            BoostVertexDesc targetDesc;
-            if (itTarget == m_vertexMap.end())
+            double dDist;
+            BoostVertexDesc targetDesc = NNSearch(*it, dDist);  // 最近傍点探索
+            if (targetDesc == BoostUndirectedGraph::null_vertex()
+                ||(targetDesc != BoostUndirectedGraph::null_vertex() && CEpsUtil::Greater(dDist, it->dEpsilon)))
             {
                 // 未登録の場合は頂点の追加
                 BoostVertexProperty v(*it, roadPtr, frnPtr, bridgePtr, centerLinePtr);
                 BoostVertexDesc desc = boost::add_vertex(v, m_graph);
                 m_graph[desc].desc = desc;
-                m_vertexMap.insert(VertexHashMap::value_type(*it, desc));
                 targetDesc = desc;
                 // 近傍探索用RTree
                 m_vertexRTree.insert(VertexRTreeValue(*it, desc));
@@ -73,7 +72,6 @@ void CNetwork::add(
             else
             {
                 // 既存の場合は情報更新
-                targetDesc = itTarget->second;
                 m_graph[targetDesc].AddCenterLinePtr(centerLinePtr);
                 m_graph[targetDesc].AddRoadPtr(roadPtr);
                 m_graph[targetDesc].AddFurniturePtr(frnPtr);
@@ -307,68 +305,9 @@ void CNetwork::SetBrailleTile(
     }
 }
 
-// 頂点座標の更新
-bool CNetwork::UpdateVertex(const Boost3DPointHash &target, const Boost3DPointHash &pt)
-{
-    bool isUpdate = false;
-    auto itTarget = m_vertexMap.find(target);   // 注目点の確認
-    auto itDst = m_vertexMap.find(pt);          // 更新後の頂点の既存点の存在確認
-
-    if (itTarget != m_vertexMap.end())
-    {
-        auto targetDesc = itTarget->second;
-        if (itDst == m_vertexMap.end())
-        {
-            // 未登録頂点の場合は注目頂点の座標値を更新する
-            m_graph[targetDesc].pt = pt;
-        }
-        else
-        {
-            // 既存頂点が存在する場合はエッジを付け替える
-            BOOST_FOREACH(BoostEdgeDesc edgeDesc, boost::out_edges(targetDesc, m_graph))
-            {
-                auto vertexDesc = boost::target(edgeDesc, m_graph);
-                auto newEdge = boost::add_edge(vertexDesc, itDst->second, m_graph); // エッジ追加
-                if (newEdge.second)
-                {
-                    // プロパティ情報の追加
-                    m_graph[newEdge.first].vertexDesc1 = vertexDesc;
-                    m_graph[newEdge.first].vertexDesc2 = itDst->second;
-                    m_graph[newEdge.first].srcCenterLinePtr = m_graph[edgeDesc].srcCenterLinePtr;
-                    m_graph[newEdge.first].srcRoadPtr = m_graph[edgeDesc].srcRoadPtr;
-                    m_graph[newEdge.first].srcFrnPtr = m_graph[edgeDesc].srcFrnPtr;
-                    m_graph[newEdge.first].srcBridgePtr = m_graph[edgeDesc].srcBridgePtr;
-                    m_graph[newEdge.first].dLength = m_graph[vertexDesc].pt.RoundDistance(pt);
-                }
-                boost::remove_edge(targetDesc, vertexDesc, m_graph);    // エッジの削除
-            }
-            // 頂点情報の更新
-            m_graph[itDst->second].AddCenterLinePtr(m_graph[targetDesc].srcCenterLines);
-            m_graph[itDst->second].AddRoadPtr(m_graph[targetDesc].srcRoads);
-            m_graph[itDst->second].AddFurniturePtr(m_graph[targetDesc].srcFurnitures);
-            m_graph[itDst->second].AddBridgePtr(m_graph[targetDesc].srcBridges);
-
-            // 注目点の頂点情報を削除
-            m_graph[targetDesc].ClearRoadPtr();
-            m_graph[targetDesc].ClearFurniturePtr();
-            m_graph[targetDesc].ClearBridgePtr();
-            m_graph[targetDesc].ClearCenterLinePtr();
-        }
-        isUpdate = true;
-    }
-    return isUpdate;
-}
-
-// 頂点座標の更新
-bool CNetwork::UpdateVertex(const BoostVertexDesc &target, const Boost3DPointHash &pt)
-{
-    return UpdateVertex(m_graph[target].pt, pt);
-}
-
 // グラフのクリア
 void CNetwork::Clear()
 {
-    m_vertexMap.clear();
     m_roadHashMap.clear();
     m_frnHashMap.clear();
     m_bridgeHashMap.clear();
