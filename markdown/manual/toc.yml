@@ -6,3 +6,5 @@
     href: devMan.md
   - name: 操作マニュアル
     href: userMan.md
+  - name: ネットワークデータ仕様
+    href: outputDataSpec.md
