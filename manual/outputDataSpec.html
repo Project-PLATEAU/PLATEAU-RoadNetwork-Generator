@@ -1,0 +1,1552 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>ネットワークデータ仕様 </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="ネットワークデータ仕様 ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ネットワークデータ仕様">ネットワークデータ仕様</h1>
+
+<h2 id="1-本書について">1 本書について</h2>
+<p>本書では、ネットワークデータ作成支援ツールが作成するネットワークデータの仕様について記載しています。</p>
+<h2 id="2-ネットワークデータ仕様">2 ネットワークデータ仕様</h2>
+<p>本ツールの出力データは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>車道ネットワークデータ</td>
+<td>車道ネットワークのノードデータとリンクデータ。</td>
+</tr>
+<tr>
+<td>歩道ネットワークデータ</td>
+<td>歩道ネットワークのノードデータとリンクデータ。</td>
+</tr>
+<tr>
+<td>動作ログ</td>
+<td>本ツールの動作時のログメッセージを記載したテキストファイル。</td>
+</tr>
+<tr>
+<td>エラーログ</td>
+<td>車道及び歩道ネットワークのエラー箇所を記載したCSVファイル。</td>
+</tr>
+</tbody>
+</table>
+<p>出力データは以下の構成で出力されます。</p>
+<p><img src="../resources/outputDataSpec/outputDataSpec_001.png" alt="出力データ構成"></p>
+<h3 id="2-1-ネットワークデータ">2-1 ネットワークデータ</h3>
+<h4 id="2-1-1-車道ネットワークデータ">2-1-1 車道ネットワークデータ</h4>
+<p>車道ネットワークデータのノードデータとリンクデータは、出力設定で指定されたファイル形式で出力します。 <br>
+出力先は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル形式</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shapefile（シェープファイル）</td>
+<td>出力フォルダ/作成日時フォルダ/SHP/roadway</td>
+</tr>
+<tr>
+<td>GeoJSON</td>
+<td>出力フォルダ/作成日時フォルダ/GeoJSON/roadway</td>
+</tr>
+</tbody>
+</table>
+<p>出力ファイルの文字コードは、Shapefile(シェープファイル)の場合はShift_JIS、GeoJSONの場合はUTF-8です。</p>
+<p>ノードデータとリンクデータの幾何情報の座標系は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。</p>
+<table>
+<thead>
+<tr>
+<th>交通（道路）の詳細度</th>
+<th>幾何情報の座標系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOD1</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD2</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD3</td>
+<td>日本測地系2011における経緯度座標系と東京湾平均海面を基準とする標高の複合座標参照系（EPSGコード:6697）</td>
+</tr>
+</tbody>
+</table>
+<p>ノードデータとリンクデータに付与される属性情報は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。
+詳細については<a href="#2-1-3-%E5%B1%9E%E6%80%A7%E6%83%85%E5%A0%B1">2-1-3 属性情報</a>を参照してください。</p>
+<p>【車道ネットワークの幾何形状サンプル】
+<img src="../resources/outputDataSpec/outputDataSpec_002.png" alt="車道ネットワークの幾何形状"></p>
+<p>【車道ネットワークの属性情報サンプル】</p>
+<p>ノードデータ</p>
+<table>
+<thead>
+<tr>
+<th>node_id</th>
+<th>lat</th>
+<th>lon</th>
+<th>elevation ※LOD3のみ</th>
+<th>link1_id</th>
+<th>link2_id</th>
+<th>link3_id</th>
+<th>link4_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09100831310416520000002.000000</td>
+<td>35.624527557647106</td>
+<td>139.74155714412902</td>
+<td>2.5</td>
+<td>09100831010416520000002.000000</td>
+<td>09100831010416560000002.000000</td>
+<td>09100831110416470000002.000000</td>
+<td>09100831310416520000002.000000</td>
+</tr>
+<tr>
+<td>09100802910382120000005.000000</td>
+<td>35.65553531527789</td>
+<td>139.74465124548507</td>
+<td>5</td>
+<td>09100802910382100000005.000000</td>
+<td>09100803110382300000004.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100893710359820000026.000000</td>
+<td>35.67562763908568</td>
+<td>139.73459587482975</td>
+<td>26</td>
+<td>09100893610359810000026.000001</td>
+<td>09100894210359860000026.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100703210368960000002.000000</td>
+<td>35.66740697663016</td>
+<td>139.755653038301</td>
+<td>2.4</td>
+<td>09100703110368940000002.000000</td>
+<td>09100703910369140000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100704810374170000002.000000</td>
+<td>35.66271305269331</td>
+<td>139.75548384326993</td>
+<td>2.3</td>
+<td>09100704710374170000002.000000</td>
+<td>09100706710374090000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100586610386360000002.000000</td>
+<td>35.651728306661795</td>
+<td>139.76854809284208</td>
+<td>2.8</td>
+<td>09100584110386660000002.000000</td>
+<td>09100586810386330000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100742710383360000002.000000</td>
+<td>35.65442500660369</td>
+<td>139.7513042429753</td>
+<td>2.3</td>
+<td>09100742510383360000002.000000</td>
+<td>09100744410383350000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100820010411120000002.000000</td>
+<td>35.62939777853448</td>
+<td>139.74279234147826</td>
+<td>2.6</td>
+<td>09100819910411160000002.000000</td>
+<td>09100820110411110000002.000000</td>
+<td>09100820210411060000002.000000</td>
+<td></td>
+</tr>
+<tr>
+<td>09100621710361320000011.000000</td>
+<td>35.67429816236728</td>
+<td>139.76465325394201</td>
+<td>11.7</td>
+<td>09100618610360770000011.000000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>リンクデータ</p>
+<table>
+<thead>
+<tr>
+<th>link_id</th>
+<th>start_id</th>
+<th>end_id</th>
+<th>distance</th>
+<th>maint_date</th>
+<th>vtcl_slope ※LOD3のみ</th>
+<th>w_min</th>
+<th>is_w_min</th>
+<th>vSlope_max ※LOD3のみ</th>
+<th>vSlope_ave ※LOD3のみ</th>
+<th>is_vSlope ※LOD3のみ</th>
+<th>type</th>
+<th>route_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09100581010368670000002.000000</td>
+<td>09100581510368720000002.000000</td>
+<td>09100580510368630000002.000000</td>
+<td>13.9</td>
+<td>2025-01-28</td>
+<td>99</td>
+<td>0</td>
+<td>0</td>
+<td>99</td>
+<td>99</td>
+<td>0</td>
+<td>3</td>
+<td>都道304号</td>
+</tr>
+<tr>
+<td>09100544010365030000003.000000</td>
+<td>09100543110365080000003.000000</td>
+<td>09100544910364980000003.000000</td>
+<td>20.8</td>
+<td>2025-01-28</td>
+<td>99</td>
+<td>0</td>
+<td>0</td>
+<td>99</td>
+<td>99</td>
+<td>0</td>
+<td>3</td>
+<td>都道473号</td>
+</tr>
+<tr>
+<td>09101154410375510000031.000000</td>
+<td>09101153910375510000032.000000</td>
+<td>09101154910375510000031.000000</td>
+<td>10.5</td>
+<td>2025-01-28</td>
+<td>99</td>
+<td>0</td>
+<td>0</td>
+<td>99</td>
+<td>99</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100845910367750000011.000000</td>
+<td>09100844910367830000011.000000</td>
+<td>09100847510367620000011.000000</td>
+<td>33.8</td>
+<td>2025-01-28</td>
+<td>1</td>
+<td>2.9</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100922410416020000005.000000</td>
+<td>09100922510416130000005.000000</td>
+<td>09100922610415980000005.000000</td>
+<td>15.6</td>
+<td>2025-01-28</td>
+<td>99</td>
+<td>3.7</td>
+<td>1</td>
+<td>99</td>
+<td>99</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100872510411540000005.000000</td>
+<td>09100873610411520000005.000000</td>
+<td>09100871510411540000004.000000</td>
+<td>21</td>
+<td>2025-01-28</td>
+<td>2</td>
+<td>8.9</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100961010415080000003.000000</td>
+<td>09100961010415040000003.000000</td>
+<td>09100961110415170000003.000000</td>
+<td>12.7</td>
+<td>2025-01-28</td>
+<td>99</td>
+<td>4.3</td>
+<td>1</td>
+<td>99</td>
+<td>99</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09101134110376630000030.000000</td>
+<td>09101132810376800000030.000000</td>
+<td>09101135210376470000031.000000</td>
+<td>40.3</td>
+<td>2025-01-28</td>
+<td>2</td>
+<td>6.1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100691010380130000001.000000</td>
+<td>09100691210380330000001.000000</td>
+<td>09100690910380090000001.000000</td>
+<td>24.2</td>
+<td>2025-01-28</td>
+<td>2</td>
+<td>5.3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100824010380790000006.000000</td>
+<td>09100824710380990000006.000000</td>
+<td>09100824010380770000006.000000</td>
+<td>22.8</td>
+<td>2025-01-28</td>
+<td>2</td>
+<td>4.1</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-1-2-歩道ネットワークデータ">2-1-2 歩道ネットワークデータ</h4>
+<p>歩道ネットワークデータのノードデータとリンクデータは、出力設定で指定されたファイル形式で出力します。 <br>
+出力先は以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル形式</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shapefile（シェープファイル）</td>
+<td>出力フォルダ/作成日時フォルダ/SHP/footpath</td>
+</tr>
+<tr>
+<td>GeoJSON</td>
+<td>出力フォルダ/作成日時フォルダ/GeoJSON/footpath</td>
+</tr>
+</tbody>
+</table>
+<p>出力ファイルの文字コードは、Shapefile(シェープファイル)の場合はShift_JIS、GeoJSONの場合はUTF-8です。</p>
+<p>ノードデータとリンクデータの幾何情報の座標系は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。</p>
+<table>
+<thead>
+<tr>
+<th>交通（道路）の詳細度</th>
+<th>幾何情報の座標系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOD2</td>
+<td>日本測地系2011における経緯度座標系（EPSGコード:6668）</td>
+</tr>
+<tr>
+<td>LOD3</td>
+<td>日本測地系2011における経緯度座標系と東京湾平均海面を基準とする標高の複合座標参照系（EPSGコード:6697）</td>
+</tr>
+</tbody>
+</table>
+<p>ノードデータとリンクデータに付与される属性情報は、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動します。
+詳細については<a href="#2-1-3-%E5%B1%9E%E6%80%A7%E6%83%85%E5%A0%B1">2-1-3 属性情報</a>を参照してください。</p>
+<p>【歩道ネットワークの幾何形状サンプル】
+<img src="../resources/outputDataSpec/outputDataSpec_003.png" alt="歩道ネットワークの幾何形状"></p>
+<p>【歩道ネットワークの属性情報サンプル】</p>
+<p>ノードデータ</p>
+<table>
+<thead>
+<tr>
+<th>node_id</th>
+<th>lat</th>
+<th>lon</th>
+<th>elevation ※LOD3のみ</th>
+<th>in_out</th>
+<th>link1_id</th>
+<th>link2_id</th>
+<th>link3_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09100639210382340000002.000000</td>
+<td>35.65535236252944</td>
+<td>139.76273739485626</td>
+<td>2.4</td>
+<td>1</td>
+<td>09100636510381970000002.000000</td>
+<td>09100639310382350000002.000000</td>
+<td></td>
+</tr>
+<tr>
+<td>09100632810381450000001.000000</td>
+<td>35.65615434814655</td>
+<td>139.76343904840758</td>
+<td>2</td>
+<td>1</td>
+<td>09100636510381970000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100639610382640000002.000000</td>
+<td>35.65508072531306</td>
+<td>139.7626883652442</td>
+<td>2</td>
+<td>1</td>
+<td>09100639010382550000002.000000</td>
+<td>09100639810382570000001.000000</td>
+<td>09100640410382760000002.000000</td>
+</tr>
+<tr>
+<td>09100639010382550000002.000000</td>
+<td>35.65516319414451</td>
+<td>139.76275853014403</td>
+<td>2.2</td>
+<td>1</td>
+<td>09100639010382550000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100639810382360000002.000000</td>
+<td>35.65533555084716</td>
+<td>139.76267205604304</td>
+<td>2.4</td>
+<td>1</td>
+<td>09100639310382350000002.000000</td>
+<td>09100639910382430000002.000000</td>
+<td>09100640310382330000002.000000</td>
+</tr>
+<tr>
+<td>09100640110382490000001.000000</td>
+<td>35.65521483880494</td>
+<td>139.76263604116278</td>
+<td>2</td>
+<td>1</td>
+<td>09100639810382570000001.000000</td>
+<td>09100639910382430000002.000000</td>
+<td>09100640610382510000002.000000</td>
+</tr>
+<tr>
+<td>09100640510382310000002.000000</td>
+<td>35.655383992611824</td>
+<td>139.76259374632403</td>
+<td>2.4</td>
+<td>1</td>
+<td>09100640310382330000002.000000</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09100640810382960000001.000000</td>
+<td>35.654794831468934</td>
+<td>139.76255966898756</td>
+<td>2</td>
+<td>1</td>
+<td>09100640410382760000002.000000</td>
+<td>09100640910383010000001.000000</td>
+<td>09100641210382960000001.000000</td>
+</tr>
+<tr>
+<td>09100641210382520000002.000000</td>
+<td>35.655189399960314</td>
+<td>139.7625162194504</td>
+<td>2.1</td>
+<td>1</td>
+<td>09100640610382510000002.000000</td>
+<td>09100641810382520000002.000000</td>
+<td></td>
+</tr>
+<tr>
+<td>09100641010383060000001.000000</td>
+<td>35.654707214678545</td>
+<td>139.76253373657735</td>
+<td>2</td>
+<td>1</td>
+<td>09100640910383010000001.000000</td>
+<td>09100643910383620000002.000000</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>リンクデータ</p>
+<table>
+<thead>
+<tr>
+<th>link_id</th>
+<th>start_id</th>
+<th>end_id</th>
+<th>distance</th>
+<th>rank</th>
+<th>maint_date</th>
+<th>rt_struct</th>
+<th>width</th>
+<th>vtcl_slope ※LOD3のみ</th>
+<th>brail_tile</th>
+<th>w_min</th>
+<th>w_min_lat</th>
+<th>w_min_lon</th>
+<th>ref_w_min</th>
+<th>vSlope_max ※LOD3のみ</th>
+<th>vSlope_lat ※LOD3のみ</th>
+<th>vSlope_lon ※LOD3のみ</th>
+<th>vSlope_ave ※LOD3のみ</th>
+<th>hSlope_max ※LOD3.2以上のみ</th>
+<th>hSlope_lat ※LOD3.2以上のみ</th>
+<th>hSlope_lon ※LOD3.2以上のみ</th>
+<th>route_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09100662510381790000001.000000</td>
+<td>09100664510381730000001.000000</td>
+<td>09100660510381840000001.000000</td>
+<td>41.5</td>
+<td>SAX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>5.8</td>
+<td>35.65588010201622</td>
+<td>139.76016460762187</td>
+<td>0</td>
+<td>3</td>
+<td>35.65586214823348</td>
+<td>139.76010048401406</td>
+<td>0</td>
+<td>99</td>
+<td>35.999999999999986</td>
+<td>139.83333333333334</td>
+<td></td>
+</tr>
+<tr>
+<td>09100653010383730000001.000000</td>
+<td>09100653410383780000001.000000</td>
+<td>09100652710383690000001.000000</td>
+<td>11.1</td>
+<td>SSX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>35.654107028783756</td>
+<td>139.76118830396913</td>
+<td>0</td>
+<td>0</td>
+<td>35.65409258097088</td>
+<td>139.7612024038863</td>
+<td>0</td>
+<td>0</td>
+<td>35.65410709469455</td>
+<td>139.7611883598798</td>
+<td></td>
+</tr>
+<tr>
+<td>09100641810382520000002.000000</td>
+<td>09100642410382520000002.000000</td>
+<td>09100641210382520000002.000000</td>
+<td>11.9</td>
+<td>SSX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>3.8</td>
+<td>35.65518654143769</td>
+<td>139.76247028334004</td>
+<td>0</td>
+<td>0</td>
+<td>35.65518853661478</td>
+<td>139.76244043347555</td>
+<td>0</td>
+<td>1</td>
+<td>35.655187120747144</td>
+<td>139.7624791160101</td>
+<td></td>
+</tr>
+<tr>
+<td>09100654810383610000001.000000</td>
+<td>09100655110383660000001.000000</td>
+<td>09100654410383560000001.000000</td>
+<td>11.2</td>
+<td>SSX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>35.65419820126588</td>
+<td>139.7610300302012</td>
+<td>0</td>
+<td>0</td>
+<td>35.65420201768607</td>
+<td>139.76101213454376</td>
+<td>0</td>
+<td>1</td>
+<td>35.65418297122797</td>
+<td>139.76101679989077</td>
+<td></td>
+</tr>
+<tr>
+<td>09100647110381210000002.000000</td>
+<td>09100647410381250000002.000000</td>
+<td>09100646810381180000002.000000</td>
+<td>8.7</td>
+<td>SXX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>99</td>
+<td>1</td>
+<td>4.1</td>
+<td>35.65636925369201</td>
+<td>139.76185781378123</td>
+<td>0</td>
+<td>99</td>
+<td>35.999999999999986</td>
+<td>139.83333333333334</td>
+<td>99</td>
+<td>1</td>
+<td>35.65635162324194</td>
+<td>139.761849159988</td>
+<td></td>
+</tr>
+<tr>
+<td>09100640610382510000002.000000</td>
+<td>09100641210382520000002.000000</td>
+<td>09100640110382490000001.000000</td>
+<td>11.2</td>
+<td>SAX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>3.8</td>
+<td>35.65519265981831</td>
+<td>139.7625682752721</td>
+<td>0</td>
+<td>1</td>
+<td>35.6552007460832</td>
+<td>139.76256966173085</td>
+<td>1</td>
+<td>2</td>
+<td>35.65519108156995</td>
+<td>139.76254421143005</td>
+<td></td>
+</tr>
+<tr>
+<td>09100648310384180000002.000000</td>
+<td>09100648710384150000002.000000</td>
+<td>09100648010384210000002.000000</td>
+<td>8.7</td>
+<td>SXX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>99</td>
+<td>1</td>
+<td>4.1</td>
+<td>35.65369539381406</td>
+<td>139.76172590122496</td>
+<td>0</td>
+<td>99</td>
+<td>35.999999999999986</td>
+<td>139.83333333333334</td>
+<td>99</td>
+<td>0</td>
+<td>35.653708386781005</td>
+<td>139.76170344273686</td>
+<td></td>
+</tr>
+<tr>
+<td>09100647810381300000002.000000</td>
+<td>09100648110381340000002.000000</td>
+<td>09100647410381250000002.000000</td>
+<td>12</td>
+<td>SAX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>4.2</td>
+<td>35.65630241007466</td>
+<td>139.76178546568113</td>
+<td>0</td>
+<td>1</td>
+<td>35.65628624446705</td>
+<td>139.76178122344533</td>
+<td>1</td>
+<td>1</td>
+<td>35.65628804513972</td>
+<td>139.76176826676323</td>
+<td></td>
+</tr>
+<tr>
+<td>09100649610383980000002.000000</td>
+<td>09100649910384030000002.000000</td>
+<td>09100649310383930000001.000000</td>
+<td>11.4</td>
+<td>SAX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>4.1</td>
+<td>35.65387267878689</td>
+<td>139.76159427549078</td>
+<td>0</td>
+<td>1</td>
+<td>35.65386979129718</td>
+<td>139.76158579056505</td>
+<td>1</td>
+<td>0</td>
+<td>35.65389336478143</td>
+<td>139.76161234648575</td>
+<td></td>
+</tr>
+<tr>
+<td>09100649110384130000002.000000</td>
+<td>09100649610384110000002.000000</td>
+<td>09100648710384150000002.000000</td>
+<td>10.3</td>
+<td>SSX</td>
+<td>2025-02-27</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>4.1</td>
+<td>35.653739758851614</td>
+<td>139.76165005324086</td>
+<td>0</td>
+<td>0</td>
+<td>35.65373940304888</td>
+<td>139.76163833598375</td>
+<td>0</td>
+<td>7</td>
+<td>35.653726178460744</td>
+<td>139.7616735271337</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-1-3-属性情報">2-1-3 属性情報</h4>
+<p>以下にネットワークデータ（ノードデータとリンクデータ）の属性情報の一覧、及び、入力設定の「使用する道路」で指定した交通（道路）の詳細度によって変動する属性の有無の一覧を記載します。</p>
+<p>【ノードデータの属性情報】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>属性名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ノードID</td>
+<td>node_id</td>
+<td>座標点の平面直角座標系の系番号(2桁)、平面直角座標系のxyz座標の整数部(符号1桁、座標値6桁)、連番(6桁)を順番に記載した文字列。 <br> 平面直角座標系の系番号とxyz座標を整数部とし、連番部分を小数部としてピリオドで区切ります。 <br> なお、座標値の符号は正を0、負を1とします。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>緯度</td>
+<td>lat</td>
+<td>ノード座標の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>経度</td>
+<td>lon</td>
+<td>ノード座標の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>標高値</td>
+<td>elevation</td>
+<td>ノード座標の標高値を記載します。 <br> LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>施設内外区分</td>
+<td>in_out</td>
+<td>歩道ネットワークの場合に付与し、値は1（施設外）固定とします。 <br> 設定可能な値は以下のとおりです。 <br> 1:施設外 <br> 2:施設内外の境界 <br> 3:施設内</td>
+</tr>
+<tr>
+<td>6</td>
+<td>接続リンクID</td>
+<td>link_id</td>
+<td>ノードが接続しているリンクのIDを記載します。 <br> 接続しているリンク数によってlink1_id、link2_id、…、link99_idのように属性数が増加します。</td>
+</tr>
+</tbody>
+</table>
+<p>【リンクデータの属性情報】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>属性名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンクID</td>
+<td>link_id</td>
+<td>リンク中央付近の座標点（リンクが2点間からなる線分の場合は線分の中点、3点以上のポリラインの場合は座標インデックスが中央となる座標点）の平面直角座標系の系番号(2桁)、平面直角座標系のxyz座標の整数部(符号1桁、座標値6桁)、連番(6桁)を順番に記載した文字列。 <br> 平面直角座標系の系番号とxyz座標を整数部とし、連番部分を小数部としてピリオドで区切ります。なお、座標値の符号は正を0、負を1とします。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>起点ノードID</td>
+<td>start_id</td>
+<td>リンクの起点となるノードのIDを記載します。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>終点ノードID</td>
+<td>end_id</td>
+<td>リンクの終点となるノードのIDを記載します。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>リンク延長</td>
+<td>distance</td>
+<td>リンクの延長を小数点以下第1位までの精度で記載します。 <br> 単位はメートル。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ランク区分</td>
+<td>rank</td>
+<td>歩道ネットワークの場合に付与し、幅員、縦断勾配、段差を示すランク（S/A/B/C/Z/X）を順に並べて英字3文字で記載します。 <br> 各ランクの判定方法は以下のとおりです。 <br> 【幅員】 <br> S:最小幅員が2m以上 <br> A:最小幅員が1m以上、2m未満 <br> B:設定なし <br> C:設定なし <br> Z:最小幅員が1m未満 <br> X:不明 <br> 【縦断勾配】 <br> S:最大縦断勾配が0%（平坦）<br> A:最大縦断勾配が0%より大きく5%以下 <br> B:最大縦断勾配5%より大きく8%以下 <br> C:最大縦断勾配8%より大きく18%以下 <br> Z:最大縦断勾配が18%より大きい <br> X:不明 <br>【段差】<br> 段差の計測は行わないためX（不明）を付与します。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>リンク作成・更新日</td>
+<td>maint_date</td>
+<td>リンクデータを作成した日付を記載します。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>経路構造</td>
+<td>rt_struct</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりですが、入力として使用する3D都市モデルの関係上、付与可能な設定値は、1、3、6、99です。 <br> 1:車道と歩道の物理的な分離あり <br> 2:車道と歩道の物理的な分離なし <br> 3:横断歩道 <br> 4:横断歩道の路面表示の無い道路の横断部 <br> 5:地下通路 <br> 6:歩道橋 <br> 7:施設内通路 <br> 8:その他の経路の構造 <br> 99:不明</td>
+</tr>
+<tr>
+<td>8</td>
+<td>幅員（コード値）</td>
+<td>width</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりです。 <br> 1:1.0未満 <br> 2:1.0m以上、2.0m未満 <br> 3:2.0m以上、3.0m未満 <br> 4:3.0m以上 <br> 99:不明</td>
+</tr>
+<tr>
+<td>9</td>
+<td>縦断勾配（コード値）</td>
+<td>vtcl_slope</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。 <br>設定値は以下のとおりです。 <br> 1:0% <br> 2:0%より大きい、5%以下 <br> 3:5%より大きい、8%以下（起点より終点が高い） <br> 4:5%より大きい、8%以下（起点より終点が低い） <br>5:8%より大きい、18%以下（起点より終点が高い） <br> 6:8%より大きい、18%以下（起点より終点が低い） <br> 7:18%より大きい（起点より終点が高い） <br> 8:18%より大きい（起点より終点が低い） <br> 99:不明</td>
+</tr>
+<tr>
+<td>10</td>
+<td>点字ブロックの有無</td>
+<td>brail_tile</td>
+<td>歩道ネットワークの場合に付与します。 <br> 設定値は以下のとおりです。 <br> 1:視覚障害者誘導用ブロック等なし <br> 2:視覚障害者誘導用ブロック等あり <br> 99:不明</td>
+</tr>
+<tr>
+<td>11</td>
+<td>最小幅員</td>
+<td>w_min</td>
+<td>リンク内の幅員の最小値を小数点以下第1位までの精度で記載します。 <br> 単位はメートル。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>最小幅員緯度</td>
+<td>w_min_lat</td>
+<td>歩道ネットワークの場合に付与します。 <br> 最小幅員地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>最小幅員経度</td>
+<td>w_min_lon</td>
+<td>歩道ネットワークの場合に付与します。 <br> 最小幅員地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>最小幅員有効フラグ</td>
+<td>is_w_min</td>
+<td>車道ネットワークの場合に付与します。 <br> 最小幅員属性が有効値である場合は1、無効値である場合は0とします。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>最小幅員参考値フラグ</td>
+<td>ref_w_min</td>
+<td>歩道ネットワークの場合に付与します。 <br> 歩道ネットワークにおいて、車道交差部内の歩道の幅員が正しく求められない可能性があるため、正しい値ではない可能性がある最小幅員に関しては参考値として判断ができるようにこの属性を付与します。 <br> 最小幅員属性が参考値である場合は1、非参考値である場合は0とします。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>最大縦断勾配</td>
+<td>vSlope_max</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した場合に付与します。 <br> リンク内の縦断勾配の最大値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>最大縦断勾配緯度</td>
+<td>vSlope_lat</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大縦断勾配地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>最大縦断勾配経度</td>
+<td>vSlope_lon</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大縦断勾配地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>平均縦断勾配</td>
+<td>vSlope_ave</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成したネットワークの場合に付与します。 <br> リンク内の縦断勾配の平均値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>縦断勾配有効フラグ</td>
+<td>is_vSlope</td>
+<td>LOD3.0以上の交通（道路）からネットワークを作成した車道ネットワークの場合に付与します。 <br> 最大縦断勾配と平均縦断勾配属性が有効値である場合は1、無効値である場合は0とします。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>最大横断勾配</td>
+<td>hSlope_max</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の横断勾配の最大値を整数で記載します。 <br> 単位はパーセント。</td>
+</tr>
+<tr>
+<td>22</td>
+<td>最大横断勾配緯度</td>
+<td>hSlope_lat</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大横断勾配地点の緯度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>最大横断勾配経度</td>
+<td>hSlope_lon</td>
+<td>LOD3.2以上の交通（道路）からネットワークを作成した歩道ネットワークの場合に付与します。 <br> リンク内の最大横断勾配地点の経度を記載します。 <br> 座標系は日本測地系2011における経緯度座標系です。</td>
+</tr>
+<tr>
+<td>24</td>
+<td>道路の区分</td>
+<td>type</td>
+<td>車道ネットワークの場合に付与します。 <br> 交通（道路）CityGMLに記載されている道路の区分（tran:Roadのtran:function）を記載します。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>通り名、路線名</td>
+<td>route_name</td>
+<td>交通（道路）CityGMLに記載されている路線名（tran:Roadのgml:name）を記載します。</td>
+</tr>
+</tbody>
+</table>
+<p>【交通（道路）の詳細度によるノードデータの属性情報の有無】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>車道（LOD1）</th>
+<th>車道（LOD2）</th>
+<th>車道（LOD3.0 - 3.3）</th>
+<th>歩道（LOD2）</th>
+<th>歩道（LOD3.0 - 3.3）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>緯度</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>経度</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>標高値</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>5</td>
+<td>施設内外区分</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>6</td>
+<td>接続リンクID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<p>【交通（道路）の詳細度によるリンクデータの属性情報の有無】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>属性</th>
+<th>車道（LOD1）</th>
+<th>車道（LOD2）</th>
+<th>車道（LOD3.0 - 3.3）</th>
+<th>歩道（LOD2）</th>
+<th>歩道（LOD3.0 - 3.1）</th>
+<th>歩道（LOD3.2 - 3.3）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンクID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>起点ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>終点ノードID</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>リンク延長</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ランク区分</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>6</td>
+<td>リンク作成・更新日</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>7</td>
+<td>経路構造</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>8</td>
+<td>幅員（コード値）</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>9</td>
+<td>縦断勾配（コード値）</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>10</td>
+<td>点字ブロックの有無</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>11</td>
+<td>最小幅員</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>12</td>
+<td>最小幅員緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>13</td>
+<td>最小幅員経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>14</td>
+<td>最小幅員有効フラグ</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>15</td>
+<td>最小幅員参考値フラグ</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>16</td>
+<td>最大縦断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>17</td>
+<td>最大縦断勾配緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>18</td>
+<td>最大縦断勾配経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>19</td>
+<td>平均縦断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>20</td>
+<td>縦断勾配有効フラグ</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>21</td>
+<td>最大横断勾配</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>22</td>
+<td>最大横断勾配緯度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>23</td>
+<td>最大横断勾配経度</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>24</td>
+<td>道路の区分</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>25</td>
+<td>通り名、路線名</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-3-動作ログ">4-3 動作ログ</h3>
+<p>ネットワークデータ作成時の動作ログを以下に出力します。<br>
+出力フォルダ/作成日時フォルダ/log.txt</p>
+<p>ログファイルの文字コードはUTF-8です。 <br>
+動作ログの記載内容は以下のとおりです。</p>
+<p><img src="../resources/outputDataSpec/outputDataSpec_004.png" alt="動作ログ"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>ネットワークデータ作成時の入出力設定を記載しています。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>ネットワークデータ作成時の動作ログを記載しています。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>ネットワークデータ作成に要した処理時間を記載しています。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4-エラーログ">4-4 エラーログ</h3>
+<p>エラーログは作成したネットワークデータのエラー地点の緯度経度情報とエラー内容を記載したCSVファイルです。なお、エラー地点の座標系は日本測地系2011における経緯度座標系（EPSGコード:6668）です。 <br>
+エラーログは、車道ネットワークと歩道ネットワークごとにログファイルを以下に出力します。</p>
+<table>
+<thead>
+<tr>
+<th>ネットワーク種別</th>
+<th>出力先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>車道ネットワーク</td>
+<td>出力フォルダ/作成日時フォルダ/errlog_roadway.csv</td>
+</tr>
+<tr>
+<td>歩道ネットワーク</td>
+<td>出力フォルダ/作成日時フォルダ/errlog_footpath.csv</td>
+</tr>
+</tbody>
+</table>
+<p>ログファイルの文字コードはUTF-8です。 <br>
+エラーログの記載内容は以下のとおりです。</p>
+<p><img src="../resources/outputDataSpec/outputDataSpec_005.png" alt="エラーログ"></p>
+<p>【エラー内容】</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>エラー内容</th>
+<th>車道ネットワークでの確認項目</th>
+<th>歩道ネットワークでの確認項目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>リンク線がポリゴン外にはみ出している</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>2</td>
+<td>リンク線の取得に失敗</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>3</td>
+<td>未接続の横断歩道のため要確認</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4</td>
+<td>未接続の横断歩道橋のため要確認</td>
+<td>×</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../resources/outputDataSpec/outputDataSpec_006.png" alt="エラーサンプル"></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

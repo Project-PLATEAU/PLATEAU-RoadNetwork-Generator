@@ -80,8 +80,10 @@
 <h1 id="環境構築手順書">環境構築手順書</h1>
 
 <h2 id="1-本書について">1 本書について</h2>
-<p>本書では、ネットワークデータ作成支援ツール（以下「本ツール」という。）の利用環境構築手順について記載しています。本ツールの構成や仕様の詳細については以下も参考にしてください。</p>
-<p><a href="XXX">技術検証レポート</a></p>
+<p>本書では、ネットワークデータ作成支援ツールの利用環境構築手順について記載しています。<br>
+ビルド済みの本ツール（exeファイル）を利用する場合は<a href="#3-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">3 インストール手順</a>を、<br>
+ソースコードからビルドして本ツールを利用する場合は<a href="#%E5%8F%82%E8%80%83-%E3%83%93%E3%83%AB%E3%83%89%E6%89%8B%E9%A0%86">【参考】ビルド手順</a>を参照してください。<br>
+本ツールの構成や仕様の詳細については<a href="https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0115_ver01.pdf">技術検証レポート</a>も参考にしてください。</p>
 <h2 id="2-動作環境">2 動作環境</h2>
 <p>本ツールの動作環境は以下のとおりです。</p>
 <p>【LOD1、LOD2交通（道路）モデルからネットワークを作成する場合】</p>
@@ -149,28 +151,31 @@
 </tbody>
 </table>
 <h2 id="3-インストール手順">3 インストール手順</h2>
-<p><a href="https://github.com/Project-PLATEAU/PLATEAU-RoadNetwork-Generator/releases/">こちら</a>
-からアプリケーションをダウンロードします。</p>
-<p>ダウンロード後、zipファイルを右クリックし、「すべて展開」を選択することで、zipファイルを展開します。</p>
-<p>展開されたフォルダ内の「NetworkCreator.exe」をダブルクリックすることで、アプリケーションが起動します。</p>
-<p><img src="../resources/devMan/devMan_001.png" alt="zip解凍"></p>
-<h2 id="4-ビルド手順">4 ビルド手順</h2>
-<p>自身でソースファイルをダウンロードしビルドを行うことで、実行ファイルを作成することができます。<br>
-ソースファイルは
+<ol>
+<li><a href="https://github.com/Project-PLATEAU/PLATEAU-RoadNetwork-Generator/releases/">こちら</a>
+からアプリケーションをダウンロードします。</li>
+<li>ダウンロード後、zipファイルを右クリックし、「すべて展開」を選択することで、zipファイルを展開します。</li>
+<li>展開されたフォルダ内の「NetworkCreator.exe」をダブルクリックすることで、アプリケーションが起動します。
+<img src="../resources/devMan/devMan_001.png" alt="zip解凍"></li>
+</ol>
+<h2 id="参考-ビルド手順">【参考】 ビルド手順</h2>
+<p>自身でソースコードをダウンロードしビルドを行うことで、実行ファイルを作成することができます。<br>
+ソースコードは
 <a href="https://github.com/Project-PLATEAU/PLATEAU-RoadNetwork-Generator/">こちら</a>
 からダウンロード可能です。</p>
-<p>GitHubからダウンロードしたソースファイルの構成は以下のようになっています。</p>
+<p>GitHubからダウンロードしたソースコードの構成は以下のようになっています。</p>
 <p><img src="../resources/devMan/devMan_002.png" alt="ソース構成"></p>
-<p>（1）本ツールのソリューションファイル（NetworkCreator.sln）をVisualStudio2019で開きます。</p>
-<p>ソリューションファイルは、PLATEAU-RoadNetwork-Generator\srcに格納されています。</p>
-<p>（2）NetworkCreator.slnをVisualStudio2019で開くと、ソリューション'NetworkCreator'に4つのプロジェクトが表示されます。</p>
-<p>以下の赤枠部分のように、ソリューション構成を【Release】に、ソリューションプラットフォームを【x64】に設定します。</p>
-<p><img src="../resources/devMan/devMan_003.png" alt="ソリューション構成"></p>
-<p>（3）以下の赤枠部分のように、[ソリューションのビルド]を選択し、ソリューション全体をビルドします。</p>
-<p><img src="../resources/devMan/devMan_004.png" alt="ビルド"></p>
-<p>（4）ビルドが正常に終了すると、ソリューションファイルと同じフォルダにあるNetworkCreator\bin\Releaseフォルダに実行ファイルが作成されます。 <br>
-Releaseフォルダ内のファイル一式がアプリケーション実行時に必要なファイルです。</p>
-<p><img src="../resources/devMan/devMan_005.png" alt="ビルド結果"></p>
+<ol>
+<li>本ツールのソリューションファイル（NetworkCreator.sln）をVisualStudio2019で開きます。<br>
+ソリューションファイルは、PLATEAU-RoadNetwork-Generator\srcに格納されています。</li>
+<li>以下の赤枠部分のようにソリューション構成を【Release】に、ソリューションプラットフォームを【x64】に設定します。
+<img src="../resources/devMan/devMan_003.png" alt="ソリューション構成"></li>
+<li>以下の赤枠部分のように、[ソリューションのビルド]を選択し、ソリューション全体をビルドします。
+<img src="../resources/devMan/devMan_004.png" alt="ビルド"></li>
+<li>ビルドが正常に終了すると、ソリューションファイルと同じフォルダにあるNetworkCreator\bin\Releaseフォルダに実行ファイルが作成されます。 <br>
+Releaseフォルダ内のファイル一式がアプリケーション実行時に必要なファイルです。
+<img src="../resources/devMan/devMan_005.png" alt="ビルド結果"></li>
+</ol>
 
 </article>
           </div>
