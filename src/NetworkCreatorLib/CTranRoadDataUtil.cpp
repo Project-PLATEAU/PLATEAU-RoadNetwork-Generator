@@ -251,7 +251,6 @@ void CTranRoadDataUtil::getTranRoadDataLOD23(
     auto& targetLod3TriangularMeshList = tranRoadData.m_lod3TriangularMeshList;
 
     Boost3DHashMultiPolygon lod2RoadwayPolygonList;
-    Boost3DHashMultiPolygon lod2LanePolygonList;
     Boost3DHashMultiPolygon lod2IntersectionPolygonList;
     Boost3DHashMultiPolygon lod2FootpathPolygonList;
     Boost3DHashMultiPolygon lod2IslandPolygonList;
@@ -294,9 +293,6 @@ void CTranRoadDataUtil::getTranRoadDataLOD23(
                             {
                             case (int)TRAFFIC_AREA_FUNCTION_TYPE::ROADWAY:
                                 lod2RoadwayPolygonList.emplace_back(polygon);
-                                break;
-                            case (int)TRAFFIC_AREA_FUNCTION_TYPE::LANE:
-                                lod2LanePolygonList.emplace_back(polygon);
                                 break;
                             case (int)TRAFFIC_AREA_FUNCTION_TYPE::ROADWAY_INTERSECTION:
                                 lod2IntersectionPolygonList.emplace_back(polygon);
@@ -375,23 +371,6 @@ void CTranRoadDataUtil::getTranRoadDataLOD23(
                 CTranRoadDataLod2 childData;
 
                 childData.m_fuctionType = (int)TRAFFIC_AREA_FUNCTION_TYPE::ROADWAY;
-                childData.m_boostGeometry = polygon;
-
-                targetLod2List.emplace_back(childData);
-            }
-
-            bLod2Result = true;
-        }
-
-        dissolvedPolygons.clear();
-        lod2LanePolygonList.size() > 1 ? dissolvedPolygons = CGDALUtil::GetInstance()->Dissolve(lod2LanePolygonList) : dissolvedPolygons = lod2LanePolygonList;
-        if (bg::is_empty(dissolvedPolygons) == false)
-        {
-            for (const auto& polygon : dissolvedPolygons)
-            {
-                CTranRoadDataLod2 childData;
-
-                childData.m_fuctionType = (int)TRAFFIC_AREA_FUNCTION_TYPE::LANE;
                 childData.m_boostGeometry = polygon;
 
                 targetLod2List.emplace_back(childData);
