@@ -44,7 +44,7 @@
 ## 7. ライセンス
 
 - ソースコードおよび関連ドキュメントの著作権は国土交通省に帰属します。
-- 本ドキュメントは[Project PLATEAUのサイトポリシー](https://www.mlit.go.jp/plateau/site-policy/)（CCBY4.0および政府標準利用規約2.0）に従い提供されています。
+- 本ドキュメントは[Project PLATEAUのサイトポリシー](https://www.mlit.go.jp/plateau/site-policy/)（CCBY4.0および公共データ利用規約第1.0版）に従い提供されています。
 
 ## 8. 注意事項
 
